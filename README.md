@@ -1,3 +1,9 @@
+### Connect firebase and auth
+https://www.youtube.com/watch?v=vDT7EnUpEoo
+
+npm install firebase
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
