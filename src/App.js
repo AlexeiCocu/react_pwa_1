@@ -1,6 +1,6 @@
 import CurrentLocation from "./Components/CurrentLocation";
 import InstallPrompt from "./Components/InstallPrompt";
-import { signInWithPopup, FacebookAuthProvider } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import {auth, providerFacebook, providerGoogle} from "./Firebase";
 import {useState} from "react";
 
