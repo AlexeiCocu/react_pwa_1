@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabase, ref, set } from 'firebase/database';
+import { ref, set } from 'firebase/database';
 import {db, auth} from '../Firebase'
 import {onAuthStateChanged} from "firebase/auth";
 import MapView from "./MapView";
@@ -23,15 +23,13 @@ const GeolocationTracker = ({user}) => {
 
 
     useEffect(() => {
-        // Track geolocation when the component mounts
+
         const watchId = navigator.geolocation.watchPosition(
             (position) => {
                 const { latitude, longitude } = position.coords;
                 setLatitude(latitude);
                 setLongitude(longitude);
 
-                // Write the updated geolocation to the Firebase Realtime Database
-                // const userId = 'user1'; // Replace with the authenticated user's ID
                 const userRef = ref(db, `users/${userId}`);
                 set(userRef, { latitude, longitude });
             },
@@ -49,12 +47,12 @@ const GeolocationTracker = ({user}) => {
     return (
         <div>
             <h2>Geolocation Tracker</h2>
-            <p>Latitude qq: {latitude}</p>
-            <p>Longitude yy: {longitude}</p>
+            <p>Latitude ee: {latitude}</p>
+            <p>Longitude: {longitude}</p>
 
-            {/*{latitude && (*/}
+            {latitude && (
                 <MapView user={user} lat={latitude} lng={longitude}/>
-            {/*)}*/}
+            )}
 
         </div>
     );
