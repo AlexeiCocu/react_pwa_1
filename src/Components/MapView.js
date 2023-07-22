@@ -22,7 +22,8 @@ const MapView = ({user, lat, lng}) => {
 
     return (
         <MapContainer style={{height: '90vh', width: '100vw'}}
-                      center={[lat, lng]}
+                      // center={[lat, lng]}
+                      center={[55.9533, -3.1883]}
                       zoom={13}
                       scrollWheelZoom={false}
                       doubleClickZoom
@@ -32,7 +33,11 @@ const MapView = ({user, lat, lng}) => {
                        url="https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"
             />
 
-                <Marker position={[user.lat, user.lng]} key={user.id}>
+                <Marker
+                    // position={[user.lat, user.lng]}
+                    position={[55.9533, -3.1883]}
+                    key={user.id}
+                >
                     <Popup>
                         <div>{user.name}</div>
                         <div>email: <a href={'email:' + user.email}>{user.email}</a></div>
