@@ -6,7 +6,7 @@ import { MapContainer, Marker, Popup, TileLayer} from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
 import L from 'leaflet';
 
-// delete L.Icon.Default.prototype._getIconUrl;
+delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
     iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
@@ -19,74 +19,31 @@ L.Icon.Default.mergeOptions({
 const MapView = ({user, lat, lng}) => {
 
 
-    const renderMap = useCallback(() => {
-        console.log('map')
-
-        return (
-            <>
-
-                <MapContainer
-                    style={{ height: '60vh', width: '100vw' }}
-                    center={[lat, lng]}
-                    zoom={20}
-                    scrollWheelZoom={false}
-                    doubleClickZoom
-                    tap={false}
-                >
-                    <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png" />
-
-
-                    <Marker position={[lat, lng]} key={user.id}>
-                        <Popup>
-                            <div>{user.name}</div>
-                            <div>email: <a href={`email:${user.email}`}>{user.email}</a></div>
-                        </Popup>
-                    </Marker>
-
-                </MapContainer>
-
-            </>
-        )
-    }, [lat, lng, user.email, user.id, user.name])
-
-
-    useEffect(() => {
-
-        console.log('render');
-
-
-
-        renderMap()
-
-    }, [lat, lng, renderMap, user.email, user.id, user.name])
-
-
-
     return (
         <>
-            <>
+            <MapContainer
+                style={{ height: '60vh', width: '100vw' }}
+                center={[user.lat, user.lng]}
+                zoom={20}
+                scrollWheelZoom={false}
+                doubleClickZoom
+                tap={false}
+            >
+                <TileLayer
+                    // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 
-                <MapContainer
-                    style={{ height: '60vh', width: '100vw' }}
-                    center={[lat, lng]}
-                    zoom={20}
-                    scrollWheelZoom={false}
-                    doubleClickZoom
-                    tap={false}
-                >
-                    <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png" />
+                    url="https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"
+                />
 
 
-                    <Marker position={[lat, lng]} key={user.id}>
-                        <Popup>
-                            <div>{user.name}</div>
-                            <div>email: <a href={`email:${user.email}`}>{user.email}</a></div>
-                        </Popup>
-                    </Marker>
+                <Marker position={[user.lat, user.lng]} key={user.id}>
+                    <Popup>
+                        <div>{user.name}</div>
+                        <div>email: <a href={`email:${user.email}`}>{user.email}</a></div>
+                    </Popup>
+                </Marker>
 
-                </MapContainer>
-
-            </>
+            </MapContainer>
         </>
 
     );

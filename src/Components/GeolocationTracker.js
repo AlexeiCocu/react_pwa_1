@@ -5,7 +5,10 @@ import {onAuthStateChanged} from "firebase/auth";
 import MapView from "./MapView";
 
 
-const GeolocationTracker = ({user}) => {
+const GeolocationTracker = ({user, setUser}) => {
+
+    // console.log(user)
+
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
     const [userId, setUserId] = useState(null);
@@ -16,22 +19,28 @@ const GeolocationTracker = ({user}) => {
 
         } else {
             // User is signed out
-            // console.log('User is signed out.');
+            console.log('User is signed out.');
         }
     });
 
 
-
     useEffect(() => {
-
         const watchId = navigator.geolocation.watchPosition(
             (position) => {
                 const { latitude, longitude } = position.coords;
                 setLatitude(latitude);
                 setLongitude(longitude);
 
+                const userFB = {
+                    ...user,
+                    lat: latitude,
+                    lng: longitude
+                }
+
+                setUser(userFB)
+
                 const userRef = ref(db, `users/${userId}`);
-                set(userRef, { latitude, longitude });
+                set(userRef, userFB);
             },
             (error) => {
                 console.error('Error getting geolocation:', error);
@@ -42,7 +51,7 @@ const GeolocationTracker = ({user}) => {
         return () => {
             navigator.geolocation.clearWatch(watchId);
         };
-    }, [userId, latitude]);
+    }, [userId, latitude, user, setUser]);
 
     return (
         <div>
