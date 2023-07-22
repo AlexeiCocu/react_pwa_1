@@ -23,7 +23,11 @@ const MapView = ({user, lat, lng}) => {
     return (
         <MapContainer style={{height: '90vh', width: '100vw'}}
                       center={[lat, lng]}
-                      zoom={13} scrollWheelZoom={false}>
+                      zoom={13}
+                      scrollWheelZoom={false}
+                      doubleClickZoom
+                      tap={false}
+        >
             <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                        url="https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"
             />
