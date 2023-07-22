@@ -49,7 +49,7 @@ const GeolocationTracker = ({user}) => {
     return (
         <div>
             <h2>Geolocation Tracker</h2>
-            <p>Latitude: {latitude}</p>
+            <p>Latitude qq: {latitude}</p>
             <p>Longitude: {longitude}</p>
 
             {latitude && (
