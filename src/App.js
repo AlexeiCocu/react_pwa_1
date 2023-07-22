@@ -190,7 +190,7 @@ function App() {
                     </div>
 
 
-                    <CurrentLocation/>
+                    {/*<CurrentLocation/>*/}
 
                     {/*<InstallPrompt/>*/}
 
@@ -203,9 +203,11 @@ function App() {
                     {/*)}*/}
 
 
-                    {user.lng && (
-                        <GeolocationTracker user={user}  />
-                    )}
+                    {/*{user.lng && (*/}
+                    {/*    <GeolocationTracker user={user}  />*/}
+                    {/*)}*/}
+
+                    <GeolocationTracker user={user}  />
 
 
 
