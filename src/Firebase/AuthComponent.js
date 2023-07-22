@@ -15,7 +15,7 @@ const AuthComponent = ({ onUserAuthenticated }) => {
             onUserAuthenticated(userId);
         } else {
             // User is signed out
-            console.log('User is signed out.');
+            // console.log('User is signed out.');
         }
     });
 

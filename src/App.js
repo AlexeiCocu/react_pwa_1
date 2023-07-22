@@ -121,7 +121,7 @@ function App() {
         getPosition();
 
 
-        console.log('user in useeffect',user)
+        // console.log('user in useeffect',user)
 
 
     }, [getPosition]);
@@ -141,7 +141,7 @@ function App() {
         // Attach the listener
         onValue(dataRef, onDataChange);
 
-        console.log('data', data)
+        // console.log('data', data)
 
 
         //Clean up the listener when the component unmounts
@@ -165,7 +165,7 @@ function App() {
 
             {/*============Auth component =======*/}
             <div>
-                <h1>My App</h1>
+                {/*<h1>My App</h1>*/}
                 {user ? (
                     <div>
                         <p>User is authenticated. UserId: {authenticatedUserId}</p>
@@ -185,9 +185,9 @@ function App() {
                     <button onClick={handleLogout}>Logout</button>
                     <h3>Welcome {localStorage.getItem('name')}</h3>
                     <p>{localStorage.getItem('email')}</p>
-                    <div>
-                        <img src={localStorage.getItem('profilePic')} alt="dp"/>
-                    </div>
+                    {/*<div>*/}
+                    {/*    <img src={localStorage.getItem('profilePic')} alt="dp"/>*/}
+                    {/*</div>*/}
 
 
                     {/*<CurrentLocation/>*/}
@@ -196,7 +196,7 @@ function App() {
 
                     {/*<LocationButton/>*/}
 
-                    <button onClick={handleWriteData}>Write to DB</button>
+                    {/*<button onClick={handleWriteData}>Write to DB</button>*/}
 
                     {/*{user.lng && (*/}
                     {/*    <MapView user={user} lat={lat} lng={lng}/>*/}
@@ -208,9 +208,6 @@ function App() {
                     {/*)}*/}
 
                     <GeolocationTracker user={user}  />
-
-
-
                 </div>
 
             ) : (

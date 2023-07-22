@@ -5,11 +5,11 @@ function InstallPrompt() {
 
     useEffect(() => {
 
-        console.log('useEffect')
+        // console.log('useEffect')
 
         const handleBeforeInstallPrompt = event => {
 
-            console.log('event', event)
+            // console.log('event', event)
 
             event.preventDefault();
             setInstallPrompt(event);
@@ -27,7 +27,7 @@ function InstallPrompt() {
         if (installPrompt) {
             installPrompt.prompt();
             installPrompt.userChoice.then(choiceResult => {
-                console.log('User choice:', choiceResult.outcome);
+                // console.log('User choice:', choiceResult.outcome);
                 setInstallPrompt(null);
             });
         }

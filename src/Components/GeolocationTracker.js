@@ -16,7 +16,7 @@ const GeolocationTracker = ({user}) => {
 
         } else {
             // User is signed out
-            console.log('User is signed out.');
+            // console.log('User is signed out.');
         }
     });
 
@@ -42,13 +42,13 @@ const GeolocationTracker = ({user}) => {
         return () => {
             navigator.geolocation.clearWatch(watchId);
         };
-    }, [userId]);
+    }, [userId, latitude]);
 
     return (
         <div>
-            <h2>Geolocation Tracker</h2>
-            <p>Latitude ee: {latitude}</p>
-            <p>Longitude: {longitude}</p>
+            {/*<h2>Geolocation Tracker</h2>*/}
+            {/*<p>Latitude ee: {latitude}</p>*/}
+            {/*<p>Longitude: {longitude}</p>*/}
 
             {latitude && (
                 <MapView user={user} lat={latitude} lng={longitude}/>
