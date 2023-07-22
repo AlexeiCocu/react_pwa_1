@@ -50,7 +50,7 @@ const GeolocationTracker = ({user}) => {
         <div>
             <h2>Geolocation Tracker</h2>
             <p>Latitude qq: {latitude}</p>
-            <p>Longitude: {longitude}</p>
+            <p>Longitude yy: {longitude}</p>
 
             {/*{latitude && (*/}
                 <MapView user={user} lat={latitude} lng={longitude}/>
